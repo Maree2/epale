@@ -202,6 +202,7 @@ GameObject:
   - 92: {fileID: 545438435}
   - 124: {fileID: 545438434}
   - 81: {fileID: 545438433}
+  - 114: {fileID: 545438438}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,6 +275,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &545438438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545438432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0ae79ddab5d564fb0ff5ba2061610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  maxAccel: 4
+  maxSpeed: 10
+  targetRadius: .200000003
+  actionRadius: 1.5
 --- !u!1001 &568122221
 Prefab:
   m_ObjectHideFlags: 0
@@ -373,7 +390,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759197855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .907559991, z: 1.1920929e-07}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -636,6 +653,10 @@ Prefab:
       propertyPath: m_Center.y
       value: .75
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c6edfe654de2cff478c703f05b691e2c, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13500000, guid: c6edfe654de2cff478c703f05b691e2c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c6edfe654de2cff478c703f05b691e2c, type: 2}
@@ -814,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f3338d65bca104b8ba69192392cd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Main
+  minigame: Main
 --- !u!1 &1615524446
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +919,7 @@ GameObject:
   - 54: {fileID: 2037106794}
   m_Layer: 0
   m_Name: PlayerMain
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,7 +967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkTag: Epale
   speed: 10
-  talk: 0
 --- !u!54 &2037106794
 Rigidbody:
   m_ObjectHideFlags: 0
