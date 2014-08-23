@@ -31,12 +31,20 @@ public class CameraIsometric : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+    }
+
+    void LateUpdate()
+    {
         FollowPoint(player.transform.position);
     }
 
     void FollowPoint(Vector3 point)
     {
-        gameObject.transform.position = point + displacement;
+        point.x += displacement.x;
+        point.z += displacement.z;
+        point.y = gameObject.transform.position.y;
+        gameObject.transform.position = point;
         /*Vector3 cameraRefPos;
         Vector3 moveVector;
         cameraRefPos = GetScreenToWorldPos(new Vector3(Screen.width / 2, Screen.height / 2, 0.0f));
