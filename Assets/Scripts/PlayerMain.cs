@@ -3,8 +3,16 @@ using System.Collections;
 
 public class PlayerMain : MonoBehaviour
 {
+    public string talkTag = "Epale";
+    public float speed = 10;
+    bool talk = false;
+    string nextMinigame;
 
-    public float speed;
+    void Start()
+    {
+        nextMinigame = "";
+        talk = false;
+    }
 
     void Update()
     {
@@ -20,6 +28,29 @@ public class PlayerMain : MonoBehaviour
             vel = vel + gameObject.transform.position;
             gameObject.transform.LookAt(vel);
         }
+
+        if (Input.GetButtonDown("Fire1") && talk)
+        {
+            Application.LoadLevel(nextMinigame);
+        }
     }
 
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.tag.Equals(talkTag))
+        {
+            talk = true;
+            nextMinigame = c.gameObject.GetComponent<Epale>().minigame;
+        }
+            
+    }
+
+    void OnCollisionExit(Collision c)
+    {
+        if (c.gameObject.tag.Equals(talkTag))
+        {
+            talk = false;
+            nextMinigame = "";
+        }
+    }
 }
